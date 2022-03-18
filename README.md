@@ -1,25 +1,23 @@
 # k-means-clustering
 Build a K-means clustering algorithm form scratch using python Numpy library. 
 
-Assignment: identifying groups of similar wines
-A sommelier is a trained professional who spends his or her day tasting different wines, and identifying similarities (or sometimes dissimilarities) between these. Given this is clearly an exhausting task, you have been hired to develop a software capable of grouping similar wines together. Your software will load a data set containing information about each wine (Alcohol content, alkalinity of ash, Proanthocyanins, colour intensity, etc) and identify which wines are similar.
+Identifying which wines are similar from wind_dataset.csv
 
 Technical details:
 You must contain the code for the functions and methods below. If you wish you can write more functions and methods, but those described below must be present.
-1) Class: matrix
- You will code a class called matrix, which will have an attribute called array_2d. This attribute is supposed to be a NumPy array containing numbers in two dimensions. The class matrix must have the following methods:
+1) Class: matrix You will code a class called matrix, which will have an attribute called array_2d. This attribute is supposed to be a NumPy array containing numbers in two dimensions. The class matrix must have the following methods:
 (in these, the parameters are in addition to self)
-A) load_from_csv
+1.1) load_from_csv
 This method should have one parameter, a file name (including, if necessary, its path and extension). This method should read this CSV file and load its data to the array_2d of matrix. Each row in this file should be a row in array_2d. Notice that in CSV files a comma separates columns (CSV = comma separated values).
 You should also write code so that
 m = matrix(‘validfilename.csv’)
 Creates a matrix m with the data in the file above in array_2d.
-B) standardise
+1.2) standardise
 This method should have no parameters. It should standardise the array_2d in the matrix calling this method. For details on how to standardise a matrix, read the appendix.
-C) get_distance
+1.3) get_distance
 This method should have three parameters, two matrices (let us call them other_matrix and weights) and a number (let us call it beta). If the matrix calling this method and the matrix weights have only one row, this function should return a matrix containing the weighted Euclidean distance between the row in the matrix calling this method and each of the rows in other_matrix. For details about how to calculate this distance, read the appendix.
 To be clear: if other_matrix has n rows, the matrix returned in this method will have n rows and 1 column.
-D) get_count_frequency
+1.4) get_count_frequency
 This method should have no parametes, and it should work if the array_2d of the matrix calling this method has only one column. This method should return a dictionary mapping each element of the array_2d to the number of times this element appears in array_2d.
 2) Functions
 The code should also have the functions (i.e. not methods, so not part of the class matrix) below. No code should be outside any function or method in this assignment.

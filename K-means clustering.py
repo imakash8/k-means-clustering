@@ -3,7 +3,7 @@ import numpy as np
 class matrix(object):
     '''This represent 2-D array'''
                 
-    def __init__(self,file_name='Data.csv'):
+    def __init__(self,file_name='wine_dataset.csv'):
         self.array_2d = self.load_from_csv(file_name)
         self.array_2d = self.standardise()
         self.n,self.m = self.array_2d.shape[0], self.array_2d.shape[1]
@@ -70,50 +70,9 @@ def get_new_weights(m,cenroids,S):
     return 1/((sum(J.reshape(-1,1)/J))**(1/(m.beta-1)))
 
 def run_test():
-    m = matrix('Data.csv')
+    m = matrix('wine_dataset.csv')
     for k in range(2,5):
         for beta in range(11,25):
             S = get_groups(m, k, beta/10)
             print(str(k)+'-'+str(beta)+'='+str(S.get_count_frequency()))
 run_test()
-
-
-# m = matrix()
-# weights = get_initial_weights(13)
-# centroids =  m.array_2d[np.random.choice(m.n, 3,replace=False),:]
-# result = m.get_distance(centroids,weights,15/10)
-# print(result)
-
-# count frequency error
-# m = matrix()
-# m.load_from_csv('Data4.csv')
-# np.array([0., 1., 0., 0., 0., 2., 2., 0.])
-# r = m.get_count_frequency()
-# print(r)
-
-
-# Stradisation error
-# m = matrix("Data.csv")
-# result = m.standardise()
-# print(result)
-
-
-# get centroid error with k=0
-# m= matrix("Data.csv")
-# K=1
-# p = get_groups(m, 2, 20/10)
-# S = m.S
-# x = get_centroids(m,S,K)
-# print(x)
-
-#Plot the data
-# import matplotlib.pyplot as plt
-# def plot_graph():
-#     m = matrix('Data1.csv')
-#     for k in range(2,5):
-#         for beta in range(11,25):
-#             S = get_groups(m, k, beta/10)
-#             print(str(k)+'-'+str(beta)+'='+str(S.get_count_frequency()))
-#             plt.scatter(m.array_2d[:,0],m.array_2d[:,1],c=S.S)
-#             plt.show
-# plot_graph()
